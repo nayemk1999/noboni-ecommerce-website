@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from '../Header/Header';
 import './Cart.css'
 
 const Cart = (props) => {
@@ -20,7 +21,9 @@ const Cart = (props) => {
     else if (total > 80) {
         shipping = 12.45
     }
-
+    else if(total>40){
+        shipping = 15.65
+    }
     let tax = Math.round(total / 5);
 
     let grandTotal = Math.round(shipping) + tax + Math.round(total);
@@ -28,14 +31,16 @@ const Cart = (props) => {
         <div>
             <div className='orderSummary'>
                 <h1>Order Summary</h1>
-                <h3>Items Add Cart: {cart.length}</h3>
+                <h3 >Items Add Cart: {cart.length}</h3>
             </div>
             <div>
                 <h4>Shipping Cost: ${Math.round(shipping)}</h4>
                 <h4>Tax & VAT: ${tax}</h4>
                 <h4>Total Price: ${grandTotal}</h4>
             </div>
+          
         </div>
+        
     );
 };
 

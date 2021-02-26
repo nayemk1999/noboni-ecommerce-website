@@ -7,3 +7,18 @@
     margin: 5px 5px 5px 100px;
     border-right: 1px solid gray;
 }
+
+.searchBox {
+    background-color: #222;
+    line-height: 60px;
+}
+
+.main-container .searchBox {
+    text-align: center;
+}
+
+.searchBox input {
+    width: 80%;
+    line-height: 22px;
+    font-size: 17px;
+}

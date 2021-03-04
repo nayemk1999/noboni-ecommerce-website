@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import fakeData from '../../fakeData';
 import Cart from '../Cart/Cart';
-
 import Products from '../Products/Products';
 import './Shop.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { addToDatabaseCart } from '../../utilities/databaseManager';
 
 const Shop = () => {
     const [products, setProducts] = useState(fakeData);
@@ -14,6 +14,9 @@ const Shop = () => {
     const addedCart = (product) =>{
         const newCart = [...cart, product]
         setCart(newCart);
+        const sameProduct = newCart.filter(pd => pd.key === product.key);
+        const count = sameProduct.length
+        addToDatabaseCart(product.key, count)
     }
     return (
         <div className='main-container'>
@@ -25,8 +28,10 @@ const Shop = () => {
              <div className='products'>
                  {
                      products.map(product=> <Products 
+                        showAddToCart = {true}
                          addedCart = {addedCart}
                          product = {product}
+                         key = {product.key}
                      ></Products>)
                  }
              </div>

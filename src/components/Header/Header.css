@@ -21,16 +21,7 @@
     font-size: 20px;
 }
 
-.searchBox {
-    background-color: #222;
-    line-height: 60px;
-}
 
-.searchBox input {
-    width: 80%;
-    line-height: 22px;
-    font-size: 17px;
-}
 
 .header nav a:hover {
     background-color: gray;

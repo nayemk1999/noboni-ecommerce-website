@@ -1,7 +1,7 @@
 {
     "name": "my-app",
     "version": "0.1.0",
-    "homepage": "https://nayemkhan.com/programming-site/react/noboni-ecommerce-site",
+    "homepage": "https://nayemkhan.com/",
     "private": true,
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^1.2.34",

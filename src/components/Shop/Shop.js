@@ -1,16 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import fakeData from '../../fakeData';
 import Cart from '../Cart/Cart';
 import Products from '../Products/Products';
 import './Shop.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-import { addToDatabaseCart } from '../../utilities/databaseManager';
+import { addToDatabaseCart, getDatabaseCart } from '../../utilities/databaseManager';
 
 const Shop = () => {
     const [products, setProducts] = useState(fakeData);
 
     const [cart, setCart] = useState([]);
+
+    useEffect(() => {
+        const saveCart = getDatabaseCart()
+        const productKeys = Object.keys(saveCart)
+        const previousCart = productKeys.map( exitingKey => {
+            const product = fakeData.find(pd => pd.key === exitingKey)
+            product.quantity = saveCart[exitingKey]
+            return product
+        })
+        setCart(previousCart)
+    }, [])
 
     const addedCart = (product) => {
         const toBeAdded = product.key

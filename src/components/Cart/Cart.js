@@ -1,10 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Header from '../Header/Header';
 import './Cart.css'
 
 const Cart = (props) => {
     const cart = props.cart;
+    const showReviewCart = props.showReviewCart;
 
     let total = 0;
     for (let i = 0; i < cart.length; i++) {
@@ -39,7 +38,9 @@ const Cart = (props) => {
                 <h4>Tax & VAT: ${tax}</h4>
                 <h4>Total Price: ${grandTotal}</h4>
                 <br/>
-                <Link to ="/order-reviews"><button className ="cartBtn">Review Order</button></Link>
+                {
+                    props.children
+                }
                 
             </div>
           

@@ -6,6 +6,7 @@ import './Shop.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { addToDatabaseCart, getDatabaseCart } from '../../utilities/databaseManager';
+import { Link } from 'react-router-dom';
 
 const Shop = () => {
     const [products, setProducts] = useState(fakeData);
@@ -58,7 +59,9 @@ const Shop = () => {
                     }
                 </div>
                 <div>
-                    <Cart cart={cart}></Cart>
+                    <Cart cart={cart}>
+                    <Link to ="/order-reviews"><button className ="cartBtn">Review Order</button></Link>
+                    </Cart>
                 </div>
             </div>
 

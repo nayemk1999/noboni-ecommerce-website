@@ -47,6 +47,7 @@ const Login = () => {
                 }
                 setUser(isSignInUser);
                 setLoggedInUser(isSignInUser)
+                history.replace('/shipment')
             })
             .catch((error) => {
                 var errorCode = error.code;

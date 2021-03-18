@@ -20,7 +20,7 @@ const Header = (props) => {
                 <Link to="/shop">Shop</Link>
                 <Link to="/order-reviews">Order-Review</Link>
                 <Link to="/manage-inventory">Manage-Inventory</Link>
-                <Link to="" onClick ={signOut}>Sign Out</Link>
+                <Link to="/login" onClick ={signOut}>Sign Out</Link>
             </nav>
            
         </div>

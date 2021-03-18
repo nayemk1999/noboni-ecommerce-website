@@ -45,7 +45,8 @@ const Login = () => {
                     email: email,
                     photo: photoURL
                 }
-                setUser(isSignInUser)
+                setUser(isSignInUser);
+                setLoggedInUser(isSignInUser)
             })
             .catch((error) => {
                 var errorCode = error.code;
@@ -60,7 +61,7 @@ const Login = () => {
     }
 
     const handleSignInGithub = () => {
-        authSignIn(ghProvider)
+        authSignIn(ghProvider);
     }
     const handleSignOut = () => {
         firebase.auth().signOut()
@@ -90,7 +91,7 @@ const Login = () => {
     }
 
 
-//submit signin/signup button
+    //submit signin/signup button
     const handleSubmit = (e) => {
         if (newUser && user.email && user.password) {
             firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
@@ -99,6 +100,7 @@ const Login = () => {
                     newUserInfo.error = '';
                     newUserInfo.success = true
                     setUser(newUserInfo);
+                    setLoggedInUser(newUserInfo)
                     updateProfile(user.name);
 
                 })

@@ -3,7 +3,7 @@ import fakeData from '../../fakeData'
 
 const Invantory = () => {
     // const handleAddProduct = () => {
-    //     const url = `http://localhost:3001/addProducts`;
+    //     const url = `https://tranquil-coast-22381.herokuapp.com/addProducts`;
     //     fetch(url, {
     //         method: 'POST',
     //         headers : { 'Content-Type': 'application/json'  },

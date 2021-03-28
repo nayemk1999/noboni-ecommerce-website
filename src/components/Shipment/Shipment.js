@@ -10,7 +10,7 @@ const Shipment = () => {
     const onSubmit = data => {
         const saveCart = getDatabaseCart()
         const orderDetails = {...loggedInUser, cart: saveCart, orderTime: new Date(), shipment: data}
-        fetch('http://localhost:3001/orderProduct', {
+        fetch('https://tranquil-coast-22381.herokuapp.com/orderProduct', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(orderDetails)

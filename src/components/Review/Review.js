@@ -22,7 +22,7 @@ const Review = () => {
     useEffect(() => {
         const saveCart = getDatabaseCart()
         const productKeys = Object.keys(saveCart)
-        fetch('http://localhost:3001/productsKeys', {
+        fetch('https://tranquil-coast-22381.herokuapp.com/productsKeys', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(productKeys)

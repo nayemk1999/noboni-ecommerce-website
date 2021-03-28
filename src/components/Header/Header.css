@@ -3,6 +3,15 @@
     height: 80px;
 }
 
+.profile {
+    width: 40px !important;
+    height: 40px !important;
+    margin-bottom: none !important;
+    padding-bottom: none !important;
+    position: absolute;
+    border-radius: 50%;
+}
+
 .header {
     text-align: center;
     margin-top: 10px;
@@ -20,8 +29,6 @@
     margin: 5px;
     font-size: 20px;
 }
-
-
 
 .header nav a:hover {
     background-color: gray;

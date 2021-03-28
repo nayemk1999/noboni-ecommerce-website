@@ -21,6 +21,7 @@ const Header = (props) => {
                 <Link to="/order-reviews">Order-Review</Link>
                 <Link to="/manage-inventory">Manage-Inventory</Link>
                 <Link to="/login" onClick ={signOut}>Sign Out</Link>
+                <Link to="/"><img className='profile' src={loggedInUser.photo} alt=""/></Link>
             </nav>
            
         </div>

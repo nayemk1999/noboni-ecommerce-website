@@ -15,7 +15,7 @@ const ReviewsItem = (props) => {
                 <p>Quantity: {quantity}</p>
                <button 
                  className='cartBtn'
-                 onClick = { () => props.removeItem(key)}
+                 onClick = {() => props.removeItem(key)}
                 > Remove Item</button>
             </div>
         </div>

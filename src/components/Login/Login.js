@@ -47,6 +47,7 @@ const Login = () => {
                 }
                 setUser(isSignInUser);
                 setLoggedInUser(isSignInUser)
+                userIdToken()
                 history.replace('/shipment')
             })
             .catch((error) => {
@@ -60,7 +61,15 @@ const Login = () => {
     const handleSignInGoogle = () => {
         authSignIn(gProvider)
     }
-
+    const userIdToken = () => {
+        firebase.auth().currentUser.getIdToken(/* forceRefresh */ true)
+        .then(function(idToken) {
+            sessionStorage.setItem('token', idToken)
+          })
+          .catch(function(error) {
+            console.log(error);
+          });
+    }
     const handleSignInGithub = () => {
         authSignIn(ghProvider);
     }

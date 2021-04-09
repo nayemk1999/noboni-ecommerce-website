@@ -10,24 +10,34 @@ import { Link } from 'react-router-dom';
 const Shop = () => {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
-
+    const [search, setSearch] = useState('');
+    const [loading, setLoading] = useState(false);
     useEffect(() => {
-        fetch('https://tranquil-coast-22381.herokuapp.com/products')
+        fetch('https://tranquil-coast-22381.herokuapp.com/products?search=' + search)
             .then(res => res.json())
-            .then(data => setProducts(data))
-    }, [])
+            .then(data => {
+                setProducts(data);
+                setLoading(true);
+            })
+    }, [search])
+    const handleSearch = (event) => {
+        if (event.key === 'Enter') {
+            setSearch(event.target.value)
+        }
+    }
 
     useEffect(() => {
         const saveCart = getDatabaseCart()
         const productKeys = Object.keys(saveCart)
         fetch('https://tranquil-coast-22381.herokuapp.com/productsKeys', {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(productKeys)
         })
-        .then(res => res.json())
-        .then(data => setCart(data))
+            .then(res => res.json())
+            .then(data => setCart(data))
     }, [])
+
 
     const addedCart = (product) => {
         const toBeAdded = product.key
@@ -50,25 +60,34 @@ const Shop = () => {
     return (
         <div className='main-container'>
             <div className='searchBox'>
-                <input type="text" placeholder="type Here to search" /><span className='fontAwesome'><FontAwesomeIcon icon={faShoppingCart} /> <span className='cartCount'>{cart.length}</span></span>
+                <input onKeyPress={handleSearch} type="text" placeholder="type Here to search" /><span className='fontAwesome'><FontAwesomeIcon icon={faShoppingCart} /> <span className='cartCount'>{cart.length}</span></span>
             </div>
             <div className='product-container'>
-                <div className='products'>
+                  <div className='products'>
                     {
-                        products.map(product => <Products
+                      loading &&  products.map(product => <Products
                             showAddToCart={true}
                             addedCart={addedCart}
                             product={product}
                             key={product.key}
                         ></Products>)
                     }
+                    :
+                    <div class="spinner-grow text-danger spinner" role="status">
+                        <span class="sr-only"></span>
+                    </div>
                 </div>
+                    
+                
+                
                 <div>
                     <Cart cart={cart}>
                         <Link to="/order-reviews"><button className="cartBtn">Review Order</button></Link>
                     </Cart>
                 </div>
             </div>
+
+
 
         </div>
 

@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router';
 import { UserContext } from '../../App';
 import { getDatabaseCart, processOrder } from '../../utilities/databaseManager';
 import ProcessPayment from '../ProcessPayment/ProcessPayment';
@@ -9,6 +10,7 @@ const Shipment = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const { register, handleSubmit, watch, errors } = useForm();
     const [userShipingData, setUserShipingData] = useState(null)
+    const history = useHistory()
     const onSubmit = data => {
         setUserShipingData(data)
     };
@@ -34,6 +36,7 @@ const Shipment = () => {
                 if (data) {
                     processOrder()
                     alert('Order Successfully')
+                    history.push('/shop')
                 }
             })
     }

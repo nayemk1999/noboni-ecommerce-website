@@ -28,11 +28,12 @@
 }
 
 .header nav a {
-    color: white;
+    color: black;
     text-decoration: none;
     padding: 9px;
     margin: 5px;
     font-size: 20px;
+    font-weight: bold;
 }
 
 .cartCount {

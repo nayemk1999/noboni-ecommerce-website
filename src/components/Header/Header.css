@@ -6,20 +6,25 @@
 .profile {
     width: 40px !important;
     height: 40px !important;
-    margin-bottom: none !important;
-    padding-bottom: none !important;
+    margin: none !important;
+    padding: none !important;
     position: absolute;
     border-radius: 50%;
+}
+
+.navber-menu {
+    margin-left: 0 auto;
+    background-color: gray;
+    line-height: 35px;
+}
+
+.navber-item {
+    margin: 0 auto;
 }
 
 .header {
     text-align: center;
     margin-top: 10px;
-}
-
-.header nav {
-    background-color: black;
-    line-height: 42px;
 }
 
 .header nav a {
@@ -28,10 +33,6 @@
     padding: 9px;
     margin: 5px;
     font-size: 20px;
-}
-
-.header nav a:hover {
-    background-color: gray;
 }
 
 .cartCount {

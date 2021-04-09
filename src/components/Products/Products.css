@@ -1,9 +1,12 @@
-.single-product {
-    display: flex;
-}
-
 .product-image {
     margin-right: 10px;
+}
+
+@media screen and (min-width: 800px) {
+    .products-container {
+        display: flex !important;
+        background-color: red;
+    }
 }
 
 .product-details {

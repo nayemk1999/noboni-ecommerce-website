@@ -31,34 +31,38 @@ const Review = () => {
             .then(data => {
                 setCart(data)
                 setLoading(true)
+
             })
     }, [])
 
     return (
-        <div className="product-container">
-            <div className="products">
-                {
-                    loading && cart.map(pd => <ReviewsItem
-                        removeItem={removeItem}
-                        product={pd}
-                        key={pd.key}
+        <div className="container">
+            <div className="row justify-content-center">
+                <div className="col-md-8">
+                    {
+                        loading ? cart.map(pd => <ReviewsItem
+                            removeItem={removeItem}
+                            product={pd}
+                            key={pd.key}
 
-                    ></ReviewsItem>)
-                }
-                :
-                <div class="spinner-grow text-danger spinner" role="status">
-                    <span class="sr-only"></span>
+                        ></ReviewsItem>)
+                            :
+                            <div class="spinner-grow text-danger spinner" role="status">
+                                <span class="sr-only"></span>
+                            </div>
+                    }
+                </div>
+                <div className='col-md-4'>
+                    <Cart cart={cart}>
+                        <button
+                            className='cartBtn'
+                            onClick={proceedCheckout}
+                        >Proceed Checkout</button>
+                    </Cart>
                 </div>
             </div>
-            <div>
-                <Cart cart={cart}>
-                    <button
-                        className='cartBtn'
-                        onClick={proceedCheckout}
-                    >Proceed Checkout</button>
-                </Cart>
-            </div>
         </div>
+
     );
 };
 

@@ -4,12 +4,12 @@ import '../Products/Products';
 const ReviewsItem = (props) => {
     const {name, quantity, img, seller, price, key} = props.product
     return (
-        <div className ="single-product">
+        <div className ="single-product d-md-flex justify-content-center">
             <div className='product-image'>
                 <img src={img} alt=""/>
             </div>
             <div className='product-details'>
-                <h4 className='product-name'>{name}</h4>
+                <h6 className='product-name'>{name}</h6>
                 <p>by: {seller}</p>
                 <p>${price}</p>
                 <p>Quantity: {quantity}</p>

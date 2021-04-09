@@ -58,14 +58,14 @@ const Shop = () => {
         addToDatabaseCart(product.key, count)
     }
     return (
-        <div className='main-container'>
+        <div className='main-container container'>
             <div className='searchBox'>
-                <input onKeyPress={handleSearch} type="text" placeholder="type Here to search" /><span className='fontAwesome'><FontAwesomeIcon icon={faShoppingCart} /> <span className='cartCount'>{cart.length}</span></span>
+                <input onKeyPress={handleSearch} type="text" placeholder="type Here to search" /><Link to='/order-reviews'><span className='fontAwesome'><FontAwesomeIcon icon={faShoppingCart} /> <span className='cartCount'>{cart.length}</span> </span></Link>
             </div>
-            <div className='product-container'>
-                  <div className='products'>
+            <div className='row'>
+                <div className='products col-md-8'>
                     {
-                      loading &&  products.map(product => <Products
+                        loading && products.map(product => <Products
                             showAddToCart={true}
                             addedCart={addedCart}
                             product={product}
@@ -77,18 +77,13 @@ const Shop = () => {
                         <span class="sr-only"></span>
                     </div>
                 </div>
-                    
-                
-                
-                <div>
+
+                <div className='col-md-4'>
                     <Cart cart={cart}>
                         <Link to="/order-reviews"><button className="cartBtn">Review Order</button></Link>
                     </Cart>
                 </div>
             </div>
-
-
-
         </div>
 
     );

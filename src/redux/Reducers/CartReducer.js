@@ -22,8 +22,22 @@ const CartReducer = (state = inialState, action) => {
         }
 
         case ADJUST_QTY: {
-            const newState = state.filter(item => item.key !== action.payload)
-            return newState
+            const toBeAdded = action.payload.key
+            const sameProduct = state.find(pd => pd.key === toBeAdded);
+            let count = sameProduct.quantity;
+            let newCart;
+            if (sameProduct) {
+                count = count + +action.payload.value;
+                sameProduct.quantity = count;
+                const others = state.filter(pd => pd.key !== toBeAdded)
+                newCart = [...others, sameProduct]
+            }
+            else {
+                action.payload.quantity = 1;
+                newCart = [...state, action.payload]
+            }
+            return newCart
+            // return newState
         }
 
         case REMOVE_FROM_CART: {

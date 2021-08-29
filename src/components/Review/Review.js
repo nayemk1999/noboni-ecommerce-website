@@ -44,10 +44,10 @@ const Review = () => {
             <div className="row justify-content-center">
                 <div className="col-md-8">
                     {
-                        cart.map(pd => <ReviewsItem
+                        cart?.map(pd => <ReviewsItem
                             // removeItem={removeItem}
                             product={pd}
-                            // key={pd.key}
+                            key={pd.key}
 
                         ></ReviewsItem>)
                             

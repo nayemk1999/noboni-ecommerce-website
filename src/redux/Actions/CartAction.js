@@ -6,10 +6,13 @@ export const add_to_cart = (payload) =>{
         payload
     }
 }
-export const adjust_qty = (payload) =>{
+export const adjust_qty = (key, value) =>{
     return {
         type: ADJUST_QTY,
-        payload
+        payload:{
+            key,
+            value
+        }
     }
 }
 export const remove_from_cart = (payload) =>{

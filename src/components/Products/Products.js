@@ -3,12 +3,15 @@ import './Products.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { add_to_cart } from '../../redux/Actions/CartAction';
 
 
 const Products = (props) => {
     const { name, img, seller, price, stock, key } = props.product;
     const showAddToCart = props.showAddToCart;
     const addedCart = props.addedCart;
+    const disPatch = useDispatch();
     return (
             <div className='d-md-flex '>
                 <div className='product-image justify-content-center '>
@@ -20,7 +23,7 @@ const Products = (props) => {
                     <p>${price}</p>
                     <p>only {stock} left in stock - order soon</p>
                     {showAddToCart && <button
-                        onClick={() => addedCart(props.product)}
+                        onClick={() => disPatch(add_to_cart(props.product))}
                         className='cartBtn'>
                         <FontAwesomeIcon icon={faShoppingCart} />
                      add to cart</button>}

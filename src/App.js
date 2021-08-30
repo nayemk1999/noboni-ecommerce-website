@@ -17,6 +17,7 @@ import ProductDetails from './components/ProductDetails/ProductDetails';
 import Login from './components/Login/Login';
 import Shipment from './components/Shipment/Shipment';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import Home from './components/Home/Home';
 
 export const UserContext = createContext();
 
@@ -25,10 +26,13 @@ function App() {
   return (
     <UserContext.Provider value = {[loggedInUser, setLoggedInUser]} className='container'>
       <Router>
-      <Header></Header>
+      {/* <Header></Header> */}
         <Switch>
           <Route path="/shop">
             <Shop></Shop>
+          </Route>
+          <Route exact path="/">
+            <Home></Home>
           </Route>
           <Route path="/order-reviews">
             <Review></Review>

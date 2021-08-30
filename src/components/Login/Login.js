@@ -1,10 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import firebase from "firebase/app";
 import "firebase/auth";
 import { useState } from 'react';
 import firebaseConfig from './firebase.config'
 import { UserContext } from '../../App';
 import { useHistory, useLocation } from 'react-router';
+import { useDispatch } from 'react-redux';
+import { user_info } from '../../redux/Actions/UserAction';
 
 // // firebase.initializeApp(firebaseConfig);
 
@@ -16,11 +18,16 @@ const Login = () => {
     const ghProvider = new firebase.auth.GithubAuthProvider();
 
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-
+    const [userInfo, setUserInfo] = useState({});
+    const disPatch = useDispatch()
     //log in page redirect
     let history = useHistory();
     let location = useLocation();
     let { from } = location.state || { from: { pathname: "/" } };
+
+    useEffect(() => {
+        disPatch(user_info(userInfo))
+    }, [userInfo])
 
     const [newUser, setNewUser] = useState(false);
     const [user, setUser] = useState({
@@ -46,7 +53,7 @@ const Login = () => {
                     photo: photoURL
                 }
                 setUser(isSignInUser);
-                setLoggedInUser(isSignInUser)
+                setUserInfo(isSignInUser)
                 userIdToken()
                 history.replace('/shipment')
             })

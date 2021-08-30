@@ -14,51 +14,14 @@ const Shop = () => {
     // const [cart, setCart] = useState([]);
     const [search, setSearch] = useState('');
     const [loading, setLoading] = useState(false);
-    // useEffect(() => {
-    //     fetch('https://tranquil-coast-22381.herokuapp.com/products?search=' + search)
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             setProducts(data);
-    //             setLoading(true);
-    //         })
-    // }, [search])
+    
     const handleSearch = (event) => {
         if (event.key === 'Enter') {
             setSearch(event.target.value)
         }
     }
     const cart = useSelector(state => state.cart)
-    // useEffect(() => {
-    //     const saveCart = getDatabaseCart()
-    //     const productKeys = Object.keys(saveCart)
-    //     fetch('https://tranquil-coast-22381.herokuapp.com/productsKeys', {
-    //         method: 'POST',
-    //         headers: { 'Content-Type': 'application/json' },
-    //         body: JSON.stringify(productKeys)
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => setCart(data))
-    // }, [])
-
-
-    // const addedCart = (product) => {
-    //     const toBeAdded = product.key
-    //     const sameProduct = cart.find(pd => pd.key === toBeAdded);
-    //     let count = 1;
-    //     let newCart;
-    //     if (sameProduct) {
-    //         count = sameProduct.quantity + 1;
-    //         sameProduct.quantity = count;
-    //         const others = cart.filter(pd => pd.key !== toBeAdded)
-    //         newCart = [...others, sameProduct]
-    //     }
-    //     else {
-    //         product.quantity = 1;
-    //         newCart = [...cart, product]
-    //     }
-    //     setCart(newCart);
-    //     addToDatabaseCart(product.key, count)
-    // }
+    
     return (
         <div className='main-container container'>
             <div className='searchBox'>

@@ -1,0 +1,13 @@
+.colornav {
+  color: rgba(3, 226, 126, 0.897);
+  font-size: 18px;
+  font-weight: 800;
+  padding: 10px;
+  border: 1px solid #73ad21;
+  border-radius: 10px;
+}
+.colornav:hover {
+  color: rgb(0, 0, 0);
+  border-bottom: 3px solid rgb(255, 72, 0);
+  border-top: 3px solid rgb(112, 0, 0);
+}

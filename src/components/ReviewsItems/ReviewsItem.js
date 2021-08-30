@@ -11,6 +11,18 @@ const ReviewsItem = (props) => {
     useEffect(() => {
         disPatch(adjust_qty(key, input))
     }, [input])
+
+    const handlePlus = () =>{
+        const plus = input+ + 1
+        setInput(plus)
+    }
+    const handleMinus = () =>{
+        const minus = input - 1
+        if (minus === 0) {
+            return
+        }
+        setInput(minus)
+    }
     return (
         <div className ="single-product d-md-flex justify-content-center">
             <div className='product-image'>
@@ -20,7 +32,17 @@ const ReviewsItem = (props) => {
                 <h6 className='product-name'>{name}</h6>
                 <p>by: {seller}</p>
                 <p>${price}</p>
-                <p>Quantity:<input type='number' min='1' value={input} onChange={(e)=> setInput(e.target.value) }/></p>
+                <p>Quantity:
+                <button 
+                 className='cartBtn'
+                 onClick = {handleMinus}
+                > -</button>
+                    <input type='number' min='1' value={input} onChange={(e)=> setInput(e.target.value) }/>
+                    <button 
+                 className='cartBtn'
+                 onClick = {handlePlus}
+                > +</button>
+                    </p>
                <button 
                  className='cartBtn'
                  onClick = {() => disPatch(remove_from_cart(key))}

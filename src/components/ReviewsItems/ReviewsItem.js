@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { adjust_qty, remove_from_cart } from '../../redux/Actions/CartAction';
 import '../Products/Products';
@@ -7,10 +7,10 @@ const ReviewsItem = (props) => {
     const {name, quantity, img, seller, price, key} = props.product
     const disPatch = useDispatch()
     const [input, setInput] = useState(quantity)
-    const handleQty = (key, value) =>{
-        disPatch(adjust_qty(key, value))
-        setInput(value)
-    }
+
+    useEffect(() => {
+        disPatch(adjust_qty(key, input))
+    }, [input])
     return (
         <div className ="single-product d-md-flex justify-content-center">
             <div className='product-image'>
@@ -20,7 +20,7 @@ const ReviewsItem = (props) => {
                 <h6 className='product-name'>{name}</h6>
                 <p>by: {seller}</p>
                 <p>${price}</p>
-                <p>Quantity:<input type='number' min='1' value={input} onChange={(e)=> handleQty(key, e.target.value) }/></p>
+                <p>Quantity:<input type='number' min='1' value={input} onChange={(e)=> setInput(e.target.value) }/></p>
                <button 
                  className='cartBtn'
                  onClick = {() => disPatch(remove_from_cart(key))}

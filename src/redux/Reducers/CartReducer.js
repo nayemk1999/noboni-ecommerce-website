@@ -27,7 +27,7 @@ const CartReducer = (state = inialState, action) => {
             let count = sameProduct.quantity;
             let newCart;
             if (sameProduct) {
-                count = count + +action.payload.value;
+                count = +action.payload.value;
                 sameProduct.quantity = count;
                 const others = state.filter(pd => pd.key !== toBeAdded)
                 newCart = [...others, sameProduct]

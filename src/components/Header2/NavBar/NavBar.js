@@ -70,9 +70,9 @@ const NavBar = () => {
             
               <ProfilePopper />
               
-              <Nav.Link style={{ marginLeft: "20px" }} className='h5 colornav' as={Link} to="/login" >
+              {/* <Nav.Link style={{ marginLeft: "20px" }} className='h5 colornav' as={Link} to="/login" >
                 Login
-              </Nav.Link>
+              </Nav.Link> */}
            
           </div>
         </Navbar.Collapse>

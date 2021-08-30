@@ -45,16 +45,16 @@ const NavBar = () => {
         />
         <Navbar.Collapse id="navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link as={Link} to="/home" className="mr-5 h5  nav-link">
+            <Nav.Link as={Link} to="/home" className="mr-2 h5  nav-link">
               <strong class="colornav">Home</strong>
             </Nav.Link>
-            <Nav.Link href="#buy" className="mr-5 h5 nav-link">
+            <Nav.Link href="#buy" className="mr-2 h5 nav-link">
               <strong class="colornav">Buy</strong>
             </Nav.Link>
-            <Nav.Link href="#rent" className="mr-5 h5 nav-link">
+            <Nav.Link href="#rent" className="mr-2 h5 nav-link">
               <strong class="colornav">Rent</strong>
             </Nav.Link>
-            <Nav.Link as={Link} to="/sold" className="mr-5 h5 nav-link">
+            <Nav.Link as={Link} to="/sold" className="mr-2 h5 nav-link">
               <strong class="colornav">Sold</strong>
             </Nav.Link>
             <Nav.Link
